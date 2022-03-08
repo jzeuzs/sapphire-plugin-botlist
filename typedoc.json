@@ -1,7 +1,7 @@
 {
 	"out": "./docs/",
 	"readme": "./README.md",
-	"name": "@sapphire/template",
+	"name": "@devtomio/plugin-botlist",
 	"entryPoints": ["src/index.ts"],
 	"excludeExternals": true,
 	"tsconfig": "./src/tsconfig.json"

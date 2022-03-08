@@ -1,35 +1,120 @@
 <div align="center">
 
-![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
+# @devtomio/plugin-botlist
 
-# @sapphire/template
+**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> to post stats to several discord bot lists.**
 
-**Template for Sapphire Repositories.**
-
-[![GitHub](https://img.shields.io/github/license/sapphiredev/sapphire-template)](https://github.com/sapphiredev/sapphire-template/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/sapphire-template/branch/main/graph/badge.svg?token=0MSAyoZNxz)](https://codecov.io/gh/sapphiredev/sapphire-template)
-[![npm](https://img.shields.io/npm/v/@sapphire/template?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/template)
+[![GitHub](https://img.shields.io/github/license/devtomio/sapphire-plugin-botlist)](https://github.com/devtomio/sapphire-plugin-botlist/blob/main/LICENSE.md)
+[![npm](https://img.shields.io/npm/v/@devtomio/plugin-botlist?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@devtomio/plugin-botlist)
 
 </div>
 
-# Steps after creating a repo with this template
+## Description
 
-1. Find and replace all instances of `template` with the proper word / ID / etc
-1. Ensure the primary branch is called `main`
-1. Ensure branch protection is on
-1. Disable `Packages` from being included in the repository homepage
-1. Enable Codecov for the repository
-1. Remove `--dry-run` from line 47 in [`continuous-delivery.yml`](.github/workflows/continuous-delivery.yml) to enable publishing to NPM
-1. Remove this section from the README
+This plugin enables the integration of many bot lists such as Top.gg, Discord Labs, and others.
 
 ## Features
 
--   This
--   Needs
--   Some
--   More
--   Filling
--   In
+-   Fully ready for TypeScript!
+-   Includes ESM ready entrypoint
+-   Easy to use
+-	Auto-detection of enabled sites
+
+## Installation
+
+`@devtomio/plugin-botlist` depends on the following packages. Be sure to install these along with this package!
+
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+
+You can use the following command to install this package, or replace `npm install` with your package manager of choice.
+
+```sh
+npm install @devtomio/plugin-botlist @sapphire/framework discord.js
+```
+
+---
+
+## Usage
+
+### JavaScript
+
+In your main or setup file, register the plugin:
+
+```javascript
+require('@devtomio/plugin-botlist/register');
+```
+
+```javascript
+require('@devtomio/plugin-botlist/register');
+
+const client = new SapphireClient({
+	/* your bot options */
+	botList: {
+		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
+		debug: false, // (Optional), shows debug messages; by default it is false
+		autoPost: {
+			enabled: true, // (Optional); by default it is enabled
+			interval: 3_600_000, // (Optional); by default it is set to 1 hour
+		},
+		keys: {
+			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+		}
+	}
+});
+
+async function main() {
+	await client.login();
+}
+
+void main();
+```
+
+### TypeScript
+
+In your main or setup file, register the plugin:
+
+```typescript
+import '@devtomio/plugin-botlist/register';
+```
+
+```typescript
+import '@devtomio/plugin-botlist/register';
+
+const client = new SapphireClient({
+	/* your bot options */
+	botList: {
+		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
+		debug: false, // (Optional), shows debug messages; by default it is false
+		autoPost: {
+			enabled: true, // (Optional); by default it is enabled
+			interval: 3_600_000, // (Optional); by default it is set to 1 hour
+		},
+		keys: {
+			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+		}
+	}
+});
+
+async function main() {
+	await client.login();
+}
+
+void main();
+```
+
+If you enable the `autoPost` option, the plugin will automatically publish the data for you; you don't need to do anything else!
+
+## List of Supported Sites
+-	[Top.gg](https://top.gg) | `topGG`
+-	[Discord Bot List](https://discordbotlist.com) | `discordBotList`
+-	[Bots on Discord](https://bots.ondiscord.xyz) | `botsOnDiscord`
+-	[Discords](https://discords.com) | `discords`
+-	[Discord Labs](https://bots.discordlabs.org) | `discordLabs`
+-	[BladeList](https://bladelist.gg) | `bladeListGG`
+-	[BotList.me](https://botlist.me) | `botListMe`
+-	[Discord List](https://discordlist.space) | `discordListSpace`
+-	[Discord Bots](https://discord.bots.gg) | `discordBotsGG`
+-	[Discord Extreme List](https://discordextremelist.xyz) | `discordExtremeList`
 
 ## Contributors ✨
 

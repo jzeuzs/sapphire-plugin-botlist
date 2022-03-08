@@ -1,3 +1,10 @@
-export const main = () => 'this builds and pushes';
+import { BotList } from './lib/BotList';
 
-export default main;
+export * from './lib/Post';
+export { BotList };
+
+declare module 'discord.js' {
+	export interface ClientOptions {
+		botList: BotList;
+	}
+}
