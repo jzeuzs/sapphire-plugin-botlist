@@ -24,8 +24,8 @@
 		"./register.mjs"
 	],
 	"scripts": {
-		"lint": "eslint src tests --ext ts --fix",
-		"format": "prettier --write {src,tests}/**/*.ts",
+		"lint": "eslint src --ext ts --fix",
+		"format": "prettier --write src/**/*.ts",
 		"docs": "typedoc",
 		"test": "jest",
 		"test:watch": "jest --watch",
