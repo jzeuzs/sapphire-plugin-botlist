@@ -1,13 +1,30 @@
 {
-	"projectName": "template",
-	"projectOwner": "sapphiredev",
-	"repoType": "github",
-	"repoHost": "https://github.com",
-	"files": ["README.md"],
-	"imageSize": 100,
-	"commit": true,
-	"commitConvention": "angular",
-	"contributors": [],
-	"contributorsPerLine": 7,
-	"skipCi": true
+  "projectName": "sapphire-plugin-botlist",
+  "projectOwner": "devtomio",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "devtomio",
+      "name": "Tomio",
+      "avatar_url": "https://avatars.githubusercontent.com/u/75403863?v=4",
+      "profile": "https://tomio.codes/",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "infra",
+        "plugin",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
 }

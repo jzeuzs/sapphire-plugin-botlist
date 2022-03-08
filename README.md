@@ -31,19 +31,6 @@
 -   Filling
 -   In
 
-## Buy us some doughnuts
-
-Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
-
-We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons below to donate through your method of choice.
-
-|   Donate With   |                       Address                       |
-| :-------------: | :-------------------------------------------------: |
-| Open Collective | [Click Here](https://sapphirejs.dev/opencollective) |
-|      Ko-fi      |      [Click Here](https://sapphirejs.dev/kofi)      |
-|     Patreon     |    [Click Here](https://sapphirejs.dev/patreon)     |
-|     PayPal      |     [Click Here](https://sapphirejs.dev/paypal)     |
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -51,7 +38,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!-- markdownlint-enable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://tomio.codes/"><img src="https://avatars.githubusercontent.com/u/75403863?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tomio</b></sub></a><br /><a href="https://github.com/devtomio/sapphire-plugin-botlist/commits?author=devtomio" title="Code">💻</a> <a href="https://github.com/devtomio/sapphire-plugin-botlist/commits?author=devtomio" title="Documentation">📖</a> <a href="#ideas-devtomio" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-devtomio" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#plugin-devtomio" title="Plugin/utility libraries">🔌</a> <a href="#maintenance-devtomio" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
