@@ -14,15 +14,15 @@ export class BotList extends TypedEmitter<BotList.Events> {
 	public readonly clientId: string;
 	public readonly autoPost: BotList.Options['autoPost'];
 	public readonly keys: BotList.Keys;
+	public readonly debug: boolean;
 
 	public constructor(public readonly options: BotList.Options) {
 		super();
 
-		options.debug ??= false;
-
 		this.clientId = options.clientId ?? container.client.user!.id;
 		this.autoPost = options.autoPost;
 		this.keys = options.keys;
+		this.debug = options.debug ?? false;
 	}
 
 	/**
