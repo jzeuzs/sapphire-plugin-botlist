@@ -49,21 +49,21 @@ require('@devtomio/plugin-botlist/register');
 
 const client = new SapphireClient({
  /* your bot options */
- botList: {
-  clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
-  debug: false, // (Optional), shows debug messages; by default it is false
-  autoPost: {
-   enabled: true, // (Optional); by default it is enabled
-   interval: 3_600_000, // (Optional); by default it is set to 1 hour
-  },
-  keys: {
-   topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
-  }
- }
+	botList: {
+		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
+		debug: false, // (Optional), shows debug messages; by default it is false
+  		autoPost: {
+   			enabled: true, // (Optional); by default it is enabled
+   			interval: 3_600_000, // (Optional); by default it is set to 1 hour
+  		},
+  		keys: {
+   			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+  		}
+ 	}
 });
 
 async function main() {
- await client.login();
+	await client.login();
 }
 
 void main();
@@ -82,21 +82,21 @@ import '@devtomio/plugin-botlist/register';
 
 const client = new SapphireClient({
  /* your bot options */
- botList: {
-  clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
-  debug: false, // (Optional), shows debug messages; by default it is false
-  autoPost: {
-   enabled: true, // (Optional); by default it is enabled
-   interval: 3_600_000, // (Optional); by default it is set to 1 hour
-  },
-  keys: {
-   topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
-  }
- }
+	botList: {
+  		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
+  		debug: false, // (Optional), shows debug messages; by default it is false
+  		autoPost: {
+   			enabled: true, // (Optional); by default it is enabled
+   			interval: 3_600_000, // (Optional); by default it is set to 1 hour
+  		},
+  		keys: {
+   			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+  		}
+ 	}
 });
 
 async function main() {
- await client.login();
+	await client.login();
 }
 
 void main();
