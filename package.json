@@ -99,7 +99,7 @@
 	"bugs": {
 		"url": "https://github.com/devtomio/sapphire-plugin-botlist/issues"
 	},
-	"homepage": "https://github.com/devtomio/sapphire-plugin-botlist#readme",
+	"homepage": "https://devtomio.github.io/sapphire-plugin-botlist",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
