@@ -52,6 +52,7 @@ const client = new SapphireClient({
 	botList: {
 		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
 		debug: false, // (Optional), shows debug messages; by default it is false
+		shard: false, // (Optional), enable sharding support; by default it is false
   		autoPost: {
    			enabled: true, // (Optional); by default it is enabled
    			interval: 3_600_000, // (Optional); by default it is set to 1 hour
@@ -85,6 +86,7 @@ const client = new SapphireClient({
 	botList: {
   		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
   		debug: false, // (Optional), shows debug messages; by default it is false
+		shard: false, // (Optional), enable sharding support; by default it is false
   		autoPost: {
    			enabled: true, // (Optional); by default it is enabled
    			interval: 3_600_000, // (Optional); by default it is set to 1 hour
@@ -116,6 +118,12 @@ If you enable the `autoPost` option, the plugin will automatically publish the d
 - [Discord List](https://discordlist.space) | `discordListSpace`
 - [Discord Bots](https://discord.bots.gg) | `discordBotsGG`
 - [Discord Extreme List](https://discordextremelist.xyz) | `discordExtremeList`
+- [Blist](https://blist.xyz) | `blist`
+- [Discord Services](https://discordservices.net) | `discordServices`
+- [Disforge](https://disforge.com) | `disforge`
+- [Fates List](https://fateslist.xyz) | `fatesList`
+- [Infinity Bot List](https://infinitybots.gg) | `infinityBots`
+- [Void Bots](https://voidbots.net) | `voidBots`
 
 ## Contributors ✨
 

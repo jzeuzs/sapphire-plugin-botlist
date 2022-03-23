@@ -7,114 +7,180 @@ import type { BotList } from '..';
  * @since 1.0.0
  */
 export class Post {
-	private guilds = container.client.guilds.cache.size;
-	private users = container.client.guilds.cache.reduce((acc, guild) => acc + (guild.memberCount ?? 0), 0);
-	private shards = container.client.shard?.count ?? 1;
+	private readonly shards = container.client.shard?.count ?? 1;
 
 	public constructor(public readonly botList: BotList) {}
 
-	public topGG() {
+	public async topGG() {
 		return this.query(
 			`https://top.gg/api/bots/${this.botList.clientId}/stats`,
 			this.botList.keys.topGG!,
-			JSON.stringify({ server_count: this.guilds, shard_count: this.shards }),
-			'https://top.gg'
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://top.gg',
+			FetchMethods.Post
 		);
 	}
 
-	public discordBotList() {
+	public async discordBotList() {
 		return this.query(
 			`https://discordbotlist.com/api/v1/bots/${this.botList.clientId}/stats`,
 			`Bot ${this.botList.keys.discordBotList}`,
-			JSON.stringify({ guilds: this.guilds, users: this.users }),
-			'https://discordbotlist.com'
+			JSON.stringify({ guilds: await this.botList.computeGuilds(), users: await this.botList.computeUsers() }),
+			'https://discordbotlist.com',
+			FetchMethods.Post
 		);
 	}
 
-	public botsOnDiscord() {
+	public async botsOnDiscord() {
 		return this.query(
 			`https://bots.ondiscord.xyz/bot-api/bots/${this.botList.clientId}/guilds`,
 			this.botList.keys.botsOnDiscord!,
-			JSON.stringify({ guildCount: this.guilds }),
-			'https://bots.ondiscord.xyz'
+			JSON.stringify({ guildCount: await this.botList.computeGuilds() }),
+			'https://bots.ondiscord.xyz',
+			FetchMethods.Post
 		);
 	}
 
-	public discords() {
+	public async discords() {
 		return this.query(
 			`https://discords.com/bots/api/bot/${this.botList.clientId}`,
 			this.botList.keys.discords!,
-			JSON.stringify({ server_count: this.guilds }),
-			'https://discords.com'
+			JSON.stringify({ server_count: await this.botList.computeGuilds() }),
+			'https://discords.com',
+			FetchMethods.Post
 		);
 	}
 
-	public discordLabs() {
+	public async discordLabs() {
 		return this.query(
 			`https://bots.discordlabs.org/v2/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.discordLabs!,
-			JSON.stringify({ server_count: this.guilds, shard_count: this.shards }),
-			'https://bots.discordlabs.org'
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://bots.discordlabs.org',
+			FetchMethods.Post
 		);
 	}
 
-	public bladeListGG() {
+	public async bladeListGG() {
 		return this.query(
 			`https://api.bladelist.gg/bots/${this.botList.clientId}`,
 			`Token ${this.botList.keys.bladeListGG}`,
-			JSON.stringify({ server_count: this.guilds, shard_count: this.shards }),
-			'https://bladelist.gg'
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://bladelist.gg',
+			FetchMethods.Post
 		);
 	}
 
-	public botListMe() {
+	public async botListMe() {
 		return this.query(
 			`https://api.botlist.me/api/v1/bots/${this.botList.clientId}/stats`,
 			`Bot ${this.botList.keys.botListMe}`,
-			JSON.stringify({ server_count: this.guilds, shard_count: this.shards }),
-			'https://botlist.me'
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://botlist.me',
+			FetchMethods.Post
 		);
 	}
 
-	public discordListSpace() {
+	public async discordListSpace() {
 		return this.query(
 			`https://api.discordlist.space/v2/bots/${this.botList.clientId}`,
 			this.botList.keys.discordListSpace!,
-			JSON.stringify({ serverCount: this.guilds }),
-			'https://discordlist.space'
+			JSON.stringify({ serverCount: await this.botList.computeGuilds() }),
+			'https://discordlist.space',
+			FetchMethods.Post
 		);
 	}
 
-	public discordBotsGG() {
+	public async discordBotsGG() {
 		return this.query(
 			`https://discord.bots.gg/api/v1/bots/${this.botList.clientId}/stats`,
 			this.botList.keys.discordBotsGG!,
-			JSON.stringify({ guildCount: this.guilds, shardCount: this.shards }),
-			'https://discord.bots.gg'
+			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
+			'https://discord.bots.gg',
+			FetchMethods.Post
 		);
 	}
 
-	public discordExtremeList() {
+	public async discordExtremeList() {
 		return this.query(
 			`https://api.discordextremelist.xyz/v2/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.discordExtremeList!,
-			JSON.stringify({ guildCount: this.guilds, shardCount: this.shards }),
-			'https://discordextremelist.xyz'
+			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
+			'https://discordextremelist.xyz',
+			FetchMethods.Post
 		);
 	}
 
-	public reloadStats() {
-		this.guilds = container.client.guilds.cache.size;
-		this.users = container.client.guilds.cache.reduce((acc, guild) => acc + (guild.memberCount ?? 0), 0);
-		this.shards = container.client.shard?.count ?? 1;
+	public async blist() {
+		return this.query(
+			`https://blist.xyz/api/v2/bot/${this.botList.clientId}/stats`,
+			this.botList.keys.blist!,
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://blist.xyz',
+			FetchMethods.Patch
+		);
 	}
 
-	private async query(url: string, authorizationKey: string, body: string, siteUrl: string) {
+	public async discordServices() {
+		return this.query(
+			`https://api.discordservices.net/bot/${this.botList.clientId}/stats`,
+			this.botList.keys.discordServices!,
+			JSON.stringify({ servers: await this.botList.computeGuilds(), shards: this.shards }),
+			'https://discordservices.net',
+			FetchMethods.Post
+		);
+	}
+
+	public async disforge() {
+		return this.query(
+			`https://disforge.com/api/botstats/${this.botList.clientId}`,
+			this.botList.keys.disforge!,
+			JSON.stringify({ servers: await this.botList.computeGuilds() }),
+			'https://disforge.com',
+			FetchMethods.Post
+		);
+	}
+
+	public async fatesList() {
+		return this.query(
+			`https://api.fateslist.xyz/bots/${this.botList.clientId}/stats`,
+			`Bot ${this.botList.keys.fatesList}`,
+			JSON.stringify({
+				guild_count: await this.botList.computeGuilds(),
+				user_count: await this.botList.computeUsers(),
+				shard_count: this.shards
+			}),
+			'https://fateslist.xyz',
+			FetchMethods.Post
+		);
+	}
+
+	public async infinityBots() {
+		return this.query(
+			'https://api.infinitybotlist.com/bots/stats',
+			this.botList.keys.infinityBots!,
+			JSON.stringify({ servers: await this.botList.computeGuilds(), shards: this.shards }),
+			'https://infinitybots.gg',
+			FetchMethods.Post
+		);
+	}
+
+	public async voidBots() {
+		return this.query(
+			`https://api.voidbots.net/bot/stats/${this.botList.clientId}`,
+			this.botList.keys.voidBots!,
+			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			'https://voidbots.net',
+			FetchMethods.Post
+		);
+	}
+
+	private async query(url: string, authorizationKey: string, body: string, siteUrl: string, method: FetchMethods) {
 		try {
 			const response = await fetch(
 				url,
 				{
-					method: FetchMethods.Post,
+					method,
 					headers: {
 						'content-type': FetchMediaContentTypes.JSON,
 						authorization: authorizationKey

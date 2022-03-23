@@ -19,6 +19,8 @@ export class BotList extends TypedEmitter<BotList.Events> {
 	public constructor(public readonly options: BotList.Options) {
 		super();
 
+		options.shard ??= false;
+
 		this.clientId = options.clientId ?? container.client.user!.id;
 		this.autoPost = options.autoPost;
 		this.keys = options.keys;
@@ -30,13 +32,41 @@ export class BotList extends TypedEmitter<BotList.Events> {
 	 * @since 1.0.0
 	 */
 	public async postStats() {
-		this.post.reloadStats();
-
 		const enabledSites = Object.keys(this.keys).filter((k) => typeof k !== 'undefined');
 
 		for (const site of enabledSites) {
 			await this.post[site as keyof BotList.Keys]();
 		}
+	}
+
+	/**
+	 * Compute the number of users.
+	 * @since 1.2.0
+	 */
+	public async computeUsers() {
+		if (container.client.shard && this.options.shard) {
+			const users = await container.client.shard.broadcastEval((c) =>
+				c.guilds.cache.filter((g) => g.available).reduce((acc, guild) => acc + (guild.memberCount ?? 0), 0)
+			);
+
+			return users.reduce((acc, m) => acc + m, 0);
+		}
+
+		return container.client.guilds.cache.reduce((acc, guild) => acc + (guild.memberCount ?? 0), 0);
+	}
+
+	/**
+	 * Compute the number of guilds.
+	 * @since 1.2.0
+	 */
+	public async computeGuilds() {
+		if (container.client.shard && this.options.shard) {
+			const guilds = await container.client.shard.broadcastEval((c) => c.guilds.cache.filter((g) => g.available).size);
+
+			return guilds.reduce((acc, g) => acc + g, 0);
+		}
+
+		return container.client.guilds.cache.size;
 	}
 }
 
@@ -59,6 +89,13 @@ export namespace BotList {
 		 * @since 1.0.0
 		 */
 		debug?: boolean;
+
+		/**
+		 * If sharding support is enabled.
+		 * @default false
+		 * @since 1.2.0
+		 */
+		shard?: boolean;
 
 		/**
 		 * If you enable auto-posting of stats.
@@ -147,5 +184,41 @@ export namespace BotList {
 		 * @since 1.0.0
 		 */
 		discordExtremeList?: string;
+
+		/**
+		 * @see https://blist.xyz
+		 * @since 1.2.0
+		 */
+		blist?: string;
+
+		/**
+		 * @see https://discordservices.net
+		 * @since 1.2.0
+		 */
+		discordServices?: string;
+
+		/**
+		 * @see https://disforge.com
+		 * @since 1.2.0
+		 */
+		disforge?: string;
+
+		/**
+		 * @see https://fateslist.xyz
+		 * @since 1.2.0
+		 */
+		fatesList?: string;
+
+		/**
+		 * @see https://infinitybots.gg
+		 * @since 1.2.0
+		 */
+		infinityBots?: string;
+
+		/**
+		 * @see https://voidbots.net
+		 * @since 1.2.0
+		 */
+		voidBots?: string;
 	}
 }
