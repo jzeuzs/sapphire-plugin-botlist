@@ -1,3 +1,7 @@
 {
-	"extends": "@sapphire/ts-config"
+	"extends": "@sapphire/ts-config",
+	"compilerOptions": {
+		// @sapphire/shapeshift: Type 'T' does not satisfy the constraint 'object'.
+		"skipLibCheck": true
+	}
 }
