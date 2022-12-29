@@ -175,6 +175,16 @@ export class Post {
 		);
 	}
 
+	public async discordListGG() {
+		return this.query(
+			`https://api.discordlist.gg/v0/bots/${this.botList.clientId}/guilds`,
+			this.botList.keys.discordListGG!,
+			JSON.stringify({ count: await this.botList.computeGuilds() }),
+			'https://discordlist.gg',
+			FetchMethods.Post
+		);
+	}
+
 	private async query(url: string, authorizationKey: string, body: string, siteUrl: string, method: FetchMethods) {
 		try {
 			const response = await fetch(
