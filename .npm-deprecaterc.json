@@ -1,0 +1,5 @@
+{
+	"$schema": "https://raw.githubusercontent.com/favware/npm-deprecate/main/assets/npm-deprecate.schema.json",
+	"name": "*next*",
+	"package": ["@devtomio/plugin-botlist"]
+}
