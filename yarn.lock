@@ -318,7 +318,7 @@ __metadata:
     "@sapphire/framework": ^3.1.4
     "@sapphire/prettier-config": ^1.4.4
     "@sapphire/ts-config": ^3.3.4
-    "@types/node": ^17.0.8
+    "@types/node": ^18.11.18
     "@typescript-eslint/eslint-plugin": ^5.33.1
     "@typescript-eslint/parser": ^5.33.1
     cz-conventional-changelog: ^3.3.0
@@ -690,7 +690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=12, @types/node@npm:^17.0.8":
+"@types/node@npm:*, @types/node@npm:>=12":
   version: 17.0.19
   resolution: "@types/node@npm:17.0.19"
   checksum: 6bbd35bfc23dd50d1aefd4ae49c31f7fd632be209dba67c0322bb4fe8b555f4bb6e894018963146ad7758ae596857d5cbecc2d46ddf90a54f6a4424811cf4351
@@ -701,6 +701,13 @@ __metadata:
   version: 14.18.33
   resolution: "@types/node@npm:14.18.33"
   checksum: 4e23f95186d8ae1d38c999bc6b46fe94e790da88744b0a3bfeedcbd0d9ffe2cb0ff39e85f43014f6739e5270292c1a1f6f97a1fc606fd573a0c17fda9a1d42de
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.11.18":
+  version: 18.11.18
+  resolution: "@types/node@npm:18.11.18"
+  checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
   languageName: node
   linkType: hard
 
