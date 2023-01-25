@@ -220,5 +220,11 @@ export namespace BotList {
 		 * @since 1.2.0
 		 */
 		voidBots?: string;
+
+		/**
+		 * @see https://discordlist.gg
+		 * @since 1.2.1
+		 */
+		discordListGG?: string;
 	}
 }
