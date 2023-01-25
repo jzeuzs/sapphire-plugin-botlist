@@ -196,10 +196,13 @@ export class Post {
 		} catch (err) {
 			if (err instanceof QueryError) {
 				const error = err.response.clone();
-				let errorMessage = await error.json().catch(() => null);
-				if (!errorMessage) errorMessage = await error.text().catch(() => null);
+				let errorMessage = await error.text().catch(() => null);
 
-				this.botList.emit('postStatsError', errorMessage ?? 'Unknow error');
+				try {
+					errorMessage = JSON.parse(errorMessage as string);
+				} catch {}
+
+				this.botList.emit('postStatsError', errorMessage ?? 'Unknown error.');
 			}
 
 			this.botList.emit('postStatsError', err);
