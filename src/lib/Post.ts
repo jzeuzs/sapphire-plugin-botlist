@@ -204,7 +204,16 @@ export class Post {
 
 			if (this.botList.options.debug) container.logger.debug(`[BotList-Plugin]: Posting to ${siteUrl} was successful.`);
 		} catch (err) {
-			if (err instanceof QueryError) this.botList.emit('postStatsError', await err.response.clone().json());
+			if (err instanceof QueryError) {
+				const error = err.response.clone();
+				let errorMessage = await error.text().catch(() => null);
+
+				try {
+					errorMessage = JSON.parse(errorMessage as string);
+				} catch {}
+
+				this.botList.emit('postStatsError', errorMessage ?? 'Unknown error.');
+			}
 
 			this.botList.emit('postStatsError', err);
 		}
