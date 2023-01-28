@@ -122,22 +122,10 @@ If you enable the `autoPost` option, the plugin will automatically publish the d
 -   [Infinity Bot List](https://infinitybots.gg) | `infinityBots`
 -   [Void Bots](https://voidbots.net) | `voidBots`
 
-## Contributors ✨
+## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thank you to all the people who already contributed to this project!
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://tomio.codes/"><img src="https://avatars.githubusercontent.com/u/75403863?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tomio</b></sub></a><br /><a href="https://github.com/devtomio/sapphire-plugin-botlist/commits?author=devtomio" title="Code">💻</a> <a href="https://github.com/devtomio/sapphire-plugin-botlist/commits?author=devtomio" title="Documentation">📖</a> <a href="#ideas-devtomio" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-devtomio" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#plugin-devtomio" title="Plugin/utility libraries">🔌</a> <a href="#maintenance-devtomio" title="Maintenance">🚧</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+<a href="https://github.com/devtomio/sapphire-plugin-botlist/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=devtomio/sapphire-plugin-botlist" />
+</a>
