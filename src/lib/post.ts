@@ -9,13 +9,16 @@ import type { BotList } from '..';
 export class Post {
 	protected readonly shards = container.client.shard?.count ?? 1;
 
-	public constructor(public readonly botList: BotList) {}
+	public constructor(protected readonly botList: BotList) {}
 
 	public async topGG() {
 		return this.query(
 			`https://top.gg/api/bots/${this.botList.clientId}/stats`,
 			this.botList.keys.topGG!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds(),
+				shard_count: this.shards
+			}),
 			'https://top.gg',
 			'post'
 		);
@@ -25,7 +28,10 @@ export class Post {
 		return this.query(
 			`https://discordbotlist.com/api/v1/bots/${this.botList.clientId}/stats`,
 			`Bot ${this.botList.keys.discordBotList}`,
-			JSON.stringify({ guilds: await this.botList.computeGuilds(), users: await this.botList.computeUsers() }),
+			JSON.stringify({
+				guilds: await this.botList.computeGuilds(),
+				users: await this.botList.computeUsers()
+			}),
 			'https://discordbotlist.com',
 			'post'
 		);
@@ -45,7 +51,9 @@ export class Post {
 		return this.query(
 			`https://discords.com/bots/api/bot/${this.botList.clientId}`,
 			this.botList.keys.discords!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds() }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds()
+			}),
 			'https://discords.com',
 			'post'
 		);
@@ -55,7 +63,10 @@ export class Post {
 		return this.query(
 			`https://bots.discordlabs.org/v2/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.discordLabs!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds(),
+				shard_count: this.shards
+			}),
 			'https://bots.discordlabs.org',
 			'post'
 		);
@@ -65,7 +76,10 @@ export class Post {
 		return this.query(
 			`https://api.botlist.me/api/v1/bots/${this.botList.clientId}/stats`,
 			`Bot ${this.botList.keys.botListMe}`,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds(),
+				shard_count: this.shards
+			}),
 			'https://botlist.me',
 			'post'
 		);
@@ -75,7 +89,10 @@ export class Post {
 		return this.query(
 			`https://discord.bots.gg/api/v1/bots/${this.botList.clientId}/stats`,
 			this.botList.keys.discordBotsGG!,
-			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
+			JSON.stringify({
+				guildCount: await this.botList.computeGuilds(),
+				shardCount: this.shards
+			}),
 			'https://discord.bots.gg',
 			'post'
 		);
@@ -85,7 +102,10 @@ export class Post {
 		return this.query(
 			`https://api.discordextremelist.xyz/v2/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.discordExtremeList!,
-			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
+			JSON.stringify({
+				guildCount: await this.botList.computeGuilds(),
+				shardCount: this.shards
+			}),
 			'https://discordextremelist.xyz',
 			'post'
 		);
@@ -95,7 +115,10 @@ export class Post {
 		return this.query(
 			`https://blist.xyz/api/v2/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.blist!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds(),
+				shard_count: this.shards
+			}),
 			'https://blist.xyz',
 			'patch'
 		);
@@ -105,7 +128,10 @@ export class Post {
 		return this.query(
 			`https://api.discordservices.net/bot/${this.botList.clientId}/stats`,
 			this.botList.keys.discordServices!,
-			JSON.stringify({ servers: await this.botList.computeGuilds(), shards: this.shards }),
+			JSON.stringify({
+				servers: await this.botList.computeGuilds(),
+				shards: this.shards
+			}),
 			'https://discordservices.net',
 			'post'
 		);
@@ -125,7 +151,11 @@ export class Post {
 		return this.query(
 			'https://api.infinitybotlist.com/bots/stats',
 			this.botList.keys.infinityBots!,
-			JSON.stringify({ servers: await this.botList.computeGuilds(), users: await this.botList.computeUsers(), shards: this.shards }),
+			JSON.stringify({
+				servers: await this.botList.computeGuilds(),
+				users: await this.botList.computeUsers(),
+				shards: this.shards
+			}),
 			'https://infinitybots.gg',
 			'post'
 		);
@@ -135,7 +165,10 @@ export class Post {
 		return this.query(
 			`https://api.voidbots.net/bot/stats/${this.botList.clientId}`,
 			this.botList.keys.voidBots!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
+			JSON.stringify({
+				server_count: await this.botList.computeGuilds(),
+				shard_count: this.shards
+			}),
 			'https://voidbots.net',
 			'post'
 		);

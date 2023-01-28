@@ -2,6 +2,7 @@ import { TypedEmitter } from 'tiny-typed-emitter';
 import { container } from '@sapphire/framework';
 import { Post } from './post';
 import type { Response } from 'undici';
+import type { Webhook } from './webhook/webhook';
 
 /**
  * The BotList class.
@@ -13,6 +14,7 @@ export class BotList extends TypedEmitter<BotList.Events> {
 	public readonly autoPost: BotList.Options['autoPost'];
 	public readonly keys: BotList.Keys;
 	public readonly debug: boolean;
+	public webhook?: Webhook;
 
 	public constructor(public readonly options: BotList.Options) {
 		super();
@@ -120,6 +122,12 @@ export namespace BotList {
 		 * @since 1.0.0
 		 */
 		keys: Keys;
+
+		/**
+		 * The options for handling webhooks.
+		 * @since 1.4.0
+		 */
+		webhook: Webhook.Options;
 	}
 
 	export interface Keys {
