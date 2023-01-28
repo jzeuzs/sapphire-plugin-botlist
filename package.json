@@ -25,7 +25,7 @@
 	],
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
-		"format": "prettier --prose-wrap always --write src/**/*.ts README.md package.json scripts/**/*",
+		"format": "prettier always --write src/**/*.ts README.md package.json scripts/**/*",
 		"docs": "typedoc",
 		"update": "yarn upgrade-interactive",
 		"build": "tsc -b src && yarn esm:register && yarn esm:default",
