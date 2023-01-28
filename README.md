@@ -15,16 +15,16 @@ This plugin enables the integration of many bot lists such as Top.gg, Discord La
 
 ## Features
 
-- Fully ready for TypeScript!
-- Includes ESM ready entrypoint
-- Easy to use
-- Auto-detection of enabled sites
+-   Fully ready for TypeScript!
+-   Includes ESM ready entrypoint
+-   Easy to use
+-   Auto-detection of enabled sites
 
 ## Installation
 
 `@devtomio/plugin-botlist` depends on the following packages. Be sure to install these along with this package!
 
-- [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
@@ -48,19 +48,19 @@ require('@devtomio/plugin-botlist/register');
 require('@devtomio/plugin-botlist/register');
 
 const client = new SapphireClient({
- /* your bot options */
+	/* your bot options */
 	botList: {
 		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
 		debug: false, // (Optional), shows debug messages; by default it is false
 		shard: false, // (Optional), enable sharding support; by default it is false
-  		autoPost: {
-   			enabled: true, // (Optional); by default it is enabled
-   			interval: 3_600_000, // (Optional); by default it is set to 1 hour
-  		},
-  		keys: {
-   			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
-  		}
- 	}
+		autoPost: {
+			enabled: true, // (Optional); by default it is enabled
+			interval: 3_600_000 // (Optional); by default it is set to 1 hour
+		},
+		keys: {
+			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+		}
+	}
 });
 
 async function main() {
@@ -82,19 +82,19 @@ import '@devtomio/plugin-botlist/register';
 import '@devtomio/plugin-botlist/register';
 
 const client = new SapphireClient({
- /* your bot options */
+	/* your bot options */
 	botList: {
-  		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
-  		debug: false, // (Optional), shows debug messages; by default it is false
+		clientId: 'YOUR_CLIENT_ID', // Optional; by default it is the bot's id
+		debug: false, // (Optional), shows debug messages; by default it is false
 		shard: false, // (Optional), enable sharding support; by default it is false
-  		autoPost: {
-   			enabled: true, // (Optional); by default it is enabled
-   			interval: 3_600_000, // (Optional); by default it is set to 1 hour
-  		},
-  		keys: {
-   			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
-  		}
- 	}
+		autoPost: {
+			enabled: true, // (Optional); by default it is enabled
+			interval: 3_600_000 // (Optional); by default it is set to 1 hour
+		},
+		keys: {
+			topGG: 'YOUR_AWESOME_TOP_GG_API_KEY' // Your top.gg API key (a list will be found below)
+		}
+	}
 });
 
 async function main() {
@@ -108,22 +108,19 @@ If you enable the `autoPost` option, the plugin will automatically publish the d
 
 ## List of Supported Sites
 
-- [Top.gg](https://top.gg) | `topGG`
-- [Discord Bot List](https://discordbotlist.com) | `discordBotList`
-- [Bots on Discord](https://bots.ondiscord.xyz) | `botsOnDiscord`
-- [Discords](https://discords.com) | `discords`
-- [Discord Labs](https://bots.discordlabs.org) | `discordLabs`
-- [BladeList](https://bladelist.gg) | `bladeListGG`
-- [BotList.me](https://botlist.me) | `botListMe`
-- [Discord List](https://discordlist.space) | `discordListSpace`
-- [Discord Bots](https://discord.bots.gg) | `discordBotsGG`
-- [Discord Extreme List](https://discordextremelist.xyz) | `discordExtremeList`
-- [Blist](https://blist.xyz) | `blist`
-- [Discord Services](https://discordservices.net) | `discordServices`
-- [Disforge](https://disforge.com) | `disforge`
-- [Fates List](https://fateslist.xyz) | `fatesList`
-- [Infinity Bot List](https://infinitybots.gg) | `infinityBots`
-- [Void Bots](https://voidbots.net) | `voidBots`
+-   [Top.gg](https://top.gg) | `topGG`
+-   [Discord Bot List](https://discordbotlist.com) | `discordBotList`
+-   [Bots on Discord](https://bots.ondiscord.xyz) | `botsOnDiscord`
+-   [Discords](https://discords.com) | `discords`
+-   [Discord Labs](https://bots.discordlabs.org) | `discordLabs`
+-   [BotList.me](https://botlist.me) | `botListMe`
+-   [Discord Bots](https://discord.bots.gg) | `discordBotsGG`
+-   [Discord Extreme List](https://discordextremelist.xyz) | `discordExtremeList`
+-   [Blist](https://blist.xyz) | `blist`
+-   [Discord Services](https://discordservices.net) | `discordServices`
+-   [Disforge](https://disforge.com) | `disforge`
+-   [Infinity Bot List](https://infinitybots.gg) | `infinityBots`
+-   [Void Bots](https://voidbots.net) | `voidBots`
 
 ## Contributors ✨
 

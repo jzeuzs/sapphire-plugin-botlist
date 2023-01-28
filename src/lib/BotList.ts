@@ -1,9 +1,7 @@
-// eslint-disable-next-line spaced-comment
-/// <reference lib="dom" />
-
 import { TypedEmitter } from 'tiny-typed-emitter';
 import { container } from '@sapphire/framework';
-import { Post } from './Post';
+import { Post } from './post';
+import type { Response } from 'undici';
 
 /**
  * The BotList class.
@@ -32,7 +30,7 @@ export class BotList extends TypedEmitter<BotList.Events> {
 	 * @since 1.0.0
 	 */
 	public async postStats() {
-		const enabledSites = Object.keys(this.keys).filter((k) => typeof k !== 'undefined');
+		const enabledSites = Object.keys(this.keys).filter((k) => !k);
 
 		for (const site of enabledSites) {
 			await this.post[site as keyof BotList.Keys]();
@@ -111,7 +109,7 @@ export namespace BotList {
 
 			/**
 			 * The interval in milliseconds.
-			 * @default 3.6e6
+			 * @default 3.6e6 // One hour
 			 * @since 1.0.0
 			 */
 			interval?: number;
@@ -156,22 +154,10 @@ export namespace BotList {
 		discordLabs?: string;
 
 		/**
-		 * @see https://bladelist.gg
-		 * @since 1.0.0
-		 */
-		bladeListGG?: string;
-
-		/**
 		 * @see https://botlist.me
 		 * @since 1.0.0
 		 */
 		botListMe?: string;
-
-		/**
-		 * @see https://discordlist.space
-		 * @since 1.0.0
-		 */
-		discordListSpace?: string;
 
 		/**
 		 * @see https://discord.bots.gg
@@ -204,12 +190,6 @@ export namespace BotList {
 		disforge?: string;
 
 		/**
-		 * @see https://fateslist.xyz
-		 * @since 1.2.0
-		 */
-		fatesList?: string;
-
-		/**
 		 * @see https://infinitybots.gg
 		 * @since 1.2.0
 		 */
@@ -223,7 +203,7 @@ export namespace BotList {
 
 		/**
 		 * @see https://discordlist.gg
-		 * @since 1.2.1
+		 * @since 1.3.0
 		 */
 		discordListGG?: string;
 	}

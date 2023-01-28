@@ -1,6 +1,6 @@
-import { BotList } from './lib/BotList';
+import { BotList } from './lib/botlist';
 
-export * from './lib/Post';
+export * from './lib/post';
 export { BotList };
 
 declare module 'discord.js' {
