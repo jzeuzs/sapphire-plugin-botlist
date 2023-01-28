@@ -1,6 +1,6 @@
 import { TypedEmitter } from 'tiny-typed-emitter';
 import { container } from '@sapphire/framework';
-import { Post } from './post';
+import { Post } from './Post';
 import type { Response } from 'undici';
 
 /**
