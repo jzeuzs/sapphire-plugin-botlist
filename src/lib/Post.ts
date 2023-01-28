@@ -1,5 +1,5 @@
 import { container } from '@sapphire/framework';
-import { fetch, FetchResultTypes, FetchMethods, QueryError, FetchMediaContentTypes } from '@sapphire/fetch';
+import { fetch } from 'undici';
 import type { BotList } from '..';
 
 /**
@@ -7,7 +7,7 @@ import type { BotList } from '..';
  * @since 1.0.0
  */
 export class Post {
-	private readonly shards = container.client.shard?.count ?? 1;
+	protected readonly shards = container.client.shard?.count ?? 1;
 
 	public constructor(public readonly botList: BotList) {}
 
@@ -17,7 +17,7 @@ export class Post {
 			this.botList.keys.topGG!,
 			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
 			'https://top.gg',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -27,7 +27,7 @@ export class Post {
 			`Bot ${this.botList.keys.discordBotList}`,
 			JSON.stringify({ guilds: await this.botList.computeGuilds(), users: await this.botList.computeUsers() }),
 			'https://discordbotlist.com',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -37,7 +37,7 @@ export class Post {
 			this.botList.keys.botsOnDiscord!,
 			JSON.stringify({ guildCount: await this.botList.computeGuilds() }),
 			'https://bots.ondiscord.xyz',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -47,7 +47,7 @@ export class Post {
 			this.botList.keys.discords!,
 			JSON.stringify({ server_count: await this.botList.computeGuilds() }),
 			'https://discords.com',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -57,17 +57,7 @@ export class Post {
 			this.botList.keys.discordLabs!,
 			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
 			'https://bots.discordlabs.org',
-			FetchMethods.Post
-		);
-	}
-
-	public async bladeListGG() {
-		return this.query(
-			`https://api.bladelist.gg/bots/${this.botList.clientId}`,
-			`Token ${this.botList.keys.bladeListGG}`,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
-			'https://bladelist.gg',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -77,17 +67,7 @@ export class Post {
 			`Bot ${this.botList.keys.botListMe}`,
 			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
 			'https://botlist.me',
-			FetchMethods.Post
-		);
-	}
-
-	public async discordListSpace() {
-		return this.query(
-			`https://api.discordlist.space/v2/bots/${this.botList.clientId}`,
-			this.botList.keys.discordListSpace!,
-			JSON.stringify({ serverCount: await this.botList.computeGuilds() }),
-			'https://discordlist.space',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -97,7 +77,7 @@ export class Post {
 			this.botList.keys.discordBotsGG!,
 			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
 			'https://discord.bots.gg',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -107,7 +87,7 @@ export class Post {
 			this.botList.keys.discordExtremeList!,
 			JSON.stringify({ guildCount: await this.botList.computeGuilds(), shardCount: this.shards }),
 			'https://discordextremelist.xyz',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -117,7 +97,7 @@ export class Post {
 			this.botList.keys.blist!,
 			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
 			'https://blist.xyz',
-			FetchMethods.Patch
+			'patch'
 		);
 	}
 
@@ -127,7 +107,7 @@ export class Post {
 			this.botList.keys.discordServices!,
 			JSON.stringify({ servers: await this.botList.computeGuilds(), shards: this.shards }),
 			'https://discordservices.net',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -137,21 +117,7 @@ export class Post {
 			this.botList.keys.disforge!,
 			JSON.stringify({ servers: await this.botList.computeGuilds() }),
 			'https://disforge.com',
-			FetchMethods.Post
-		);
-	}
-
-	public async fatesList() {
-		return this.query(
-			`https://api.fateslist.xyz/bots/${this.botList.clientId}/stats`,
-			`Bot ${this.botList.keys.fatesList}`,
-			JSON.stringify({
-				guild_count: await this.botList.computeGuilds(),
-				user_count: await this.botList.computeUsers(),
-				shard_count: this.shards
-			}),
-			'https://fateslist.xyz',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -159,9 +125,9 @@ export class Post {
 		return this.query(
 			'https://api.infinitybotlist.com/bots/stats',
 			this.botList.keys.infinityBots!,
-			JSON.stringify({ servers: await this.botList.computeGuilds(), shards: this.shards }),
+			JSON.stringify({ servers: await this.botList.computeGuilds(), users: await this.botList.computeUsers(), shards: this.shards }),
 			'https://infinitybots.gg',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -171,7 +137,7 @@ export class Post {
 			this.botList.keys.voidBots!,
 			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
 			'https://voidbots.net',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
@@ -181,31 +147,27 @@ export class Post {
 			this.botList.keys.discordListGG!,
 			JSON.stringify({ count: await this.botList.computeGuilds() }),
 			'https://discordlist.gg',
-			FetchMethods.Post
+			'post'
 		);
 	}
 
-	private async query(url: string, authorizationKey: string, body: string, siteUrl: string, method: FetchMethods) {
+	private async query(url: string, authorizationKey: string, body: string, siteUrl: string, method: 'post' | 'patch') {
 		try {
-			const response = await fetch(
-				url,
-				{
-					method,
-					headers: {
-						'content-type': FetchMediaContentTypes.JSON,
-						authorization: authorizationKey
-					},
-					body
+			const response = await fetch(url, {
+				method,
+				headers: {
+					'content-type': 'application/json',
+					authorization: authorizationKey
 				},
-				FetchResultTypes.Result
-			);
+				body
+			});
 
 			this.botList.emit('postStatsSuccess', response);
 
 			if (this.botList.options.debug) container.logger.debug(`[BotList-Plugin]: Posting to ${siteUrl} was successful.`);
-		} catch (err) {
-			if (err instanceof QueryError) {
-				const error = err.response.clone();
+
+			if (!response.ok) {
+				const error = response.clone();
 				let errorMessage = await error.text().catch(() => null);
 
 				try {
@@ -214,7 +176,7 @@ export class Post {
 
 				this.botList.emit('postStatsError', errorMessage ?? 'Unknown error.');
 			}
-
+		} catch (err) {
 			this.botList.emit('postStatsError', err);
 		}
 	}
