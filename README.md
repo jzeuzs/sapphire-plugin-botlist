@@ -121,6 +121,7 @@ If you enable the `autoPost` option, the plugin will automatically publish the d
 -   [Disforge](https://disforge.com) | `disforge`
 -   [Infinity Bot List](https://infinitybots.gg) | `infinityBots`
 -   [Void Bots](https://voidbots.net) | `voidBots`
+-   [Discord List](https://discordlist.gg) | `discordListGG`
 
 ## Contributors
 
