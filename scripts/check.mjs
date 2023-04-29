@@ -9,7 +9,6 @@ const sites = [
 	['https://bots.ondiscord.xyz'],
 	['https://discords.com'],
 	['https://discords.com/bots/api'],
-	['https://bots.discordlabs.org'],
 	['https://botlist.me'],
 	['https://discord.bots.gg'],
 	['https://discord.bots.gg/api/v1', undefined, 'GET'],

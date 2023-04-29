@@ -112,7 +112,6 @@ If you enable the `autoPost` option, the plugin will automatically publish the d
 -   [Discord Bot List](https://discordbotlist.com) | `discordBotList`
 -   [Bots on Discord](https://bots.ondiscord.xyz) | `botsOnDiscord`
 -   [Discords](https://discords.com) | `discords`
--   [Discord Labs](https://bots.discordlabs.org) | `discordLabs`
 -   [BotList.me](https://botlist.me) | `botListMe`
 -   [Discord Bots](https://discord.bots.gg) | `discordBotsGG`
 -   [Discord Extreme List](https://discordextremelist.xyz) | `discordExtremeList`

@@ -51,16 +51,6 @@ export class Post {
 		);
 	}
 
-	public async discordLabs() {
-		return this.query(
-			`https://bots.discordlabs.org/v2/bot/${this.botList.clientId}/stats`,
-			this.botList.keys.discordLabs!,
-			JSON.stringify({ server_count: await this.botList.computeGuilds(), shard_count: this.shards }),
-			'https://bots.discordlabs.org',
-			'post'
-		);
-	}
-
 	public async botListMe() {
 		return this.query(
 			`https://api.botlist.me/api/v1/bots/${this.botList.clientId}/stats`,
